@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+.content {
+    position: relative;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    margin-top: 0px; /* Space for the header */
+    padding: 0px;
+}
+
+/* Metrics container styling */
+.metrics {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: calc(100% - 320px); 
+}
+
+.metric {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 calc(50% - 20px); 
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.metric h3 {
+    margin: 0 0 10px;
+    color: black;
+    font-size: 16px;
+}
+
+.metric .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #961414;
+}
+
+.metric:hover {
+  
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/*  charts section */
+
+.charts {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.charts h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Container for the sales chart */
+
+.chart-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.charts canvas {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+     
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .metrics {
+        max-width: 100%;
+    }
+   
+    .metric {
+        flex: 1 1 calc(100% - 20px);
+    }
+
+    .charts {
+        padding: 15px;
+    }
+
+    .charts h2 {
+        font-size: 20px;
+    }
+
+    .chart-container {
+        height: 300px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .metrics {
+        gap: 10px; 
+    }
+    .metric {
+        padding: 15px;
+    }
+    metric h3 {
+        font-size: 14px;
+    }
+
+    .metric .value {
+        font-size: 20px;
+    }
+    
+}
+
+@media (max-width: 1024px) {
+    .metric {
+        flex: 1 1 calc(50% - 20px); 
+    }
+}
+
+    </style>
+</head>
+<body>
+    <button class="menu-btn">&#9776;</button>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <a href="index.html" class="active"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+        <a href="users.html"><i class="fas fa-users"></i>User Management</a>
+        <a href="products.html"><i class="fas fa-box"></i>Product Management</a>
+        <a href="orders.html"><i class="fas fa-shopping-cart"></i>Order Management</a>
+        <a href="inventory.html"><i class="fas fa-warehouse"></i>Inventory Management</a>
+        <a href="sales.html"><i class="fas fa-tags"></i>Sales and Discounts</a>
+        <a href="support.html"><i class="fas fa-headset"></i>Customer Support</a>
+        <a href="settings.html"><i class="fas fa-cogs"></i>Settings</a>
+        <a href="security.html"><i class="fas fa-shield-alt"></i>Security</a>
+        <a href="analytics.html"><i class="fas fa-chart-line"></i>Analytics and Reporting</a>
+        <a href="notifications.html"><i class="fas fa-bell"></i>Notifications</a>
+        <a href="../index.html"><img src="../images/logo.png" alt="Logo" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 8px;">CelestiaChic</a>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="content">
+
+<div class="container">
+
+    <!-- Metrics section -->
+
+    <div class="metrics">
+        <div class="metric">
+            <h3>Total Products</h3>
+            <p class="value">500</p>
+        </div>
+        <div class="metric">
+            <h3>Stock Availability</h3>
+            <p class="value">80% In Stock</p>
+        </div>
+        
+        <div class="metric">
+            <h3>Total Sales</h3>
+            <p class="value">$10,000</p>
+        </div>
+        <div class="metric">
+            <h3>Total Orders</h3>
+            <p class="value">150</p>
+        </div>
+        <div class="metric">
+            <h3>Total Users</h3>
+            <p class="value">200</p>
+        </div>
+        <div class="metric">
+            <h3>Total Revenue</h3>
+            <p class="value">$50,000</p>
+        </div>
+    </div>
+
+    <!-- Feature box -->
+
+    <div class="feature-box">
+        
+        <h3>Product Activity</h3>
+        <div class="activity-details">
+            <p><strong>New Products:</strong> 5</p>
+            <p><strong>Top Seller:</strong> Product XYZ</p>
+            <p><strong>Recent Returns:</strong> 2</p>
+            <p><strong>Top 5 Products:</strong> Product A, Product B, Product C, Product D, Product E</p>
+            <p><strong>Views:</strong> Product A - 1200, Product B - 950</p>
+            <p><strong>Low Stock Alerts:</strong> Product F, Product G</p>
+            <p><strong>Sales Trend:</strong> +15% this month</p>
+            <p><strong>Average Rating:</strong> 4.5 stars</p>
+            <p><strong>Returns:</strong> Product H - 10, Product I - 5</p>
+        </div>
+    </div>
+</div>
+           
+</div>
+
+
+<div class="chatbot-container">
+    <button id="chatbotToggle" class="chatbot-btn">
+        <i class="fas fa-comments"></i>
+    </button>
+    <div id="chatbotWindow" class="chatbot-window" style="display: none;">
+        <div class="chat-header">
+            <h3>Chatbot</h3>
+            <button id="closeChatbot" class="close-btn">&times;</button>
+        </div>
+        <div id="chatbotMessages" class="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="userMessage" placeholder="Type your message...">
+            <button id="sendMessage" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
+
+
+
+      <!-- Performance Monitoring -->
+      <div class="performance-box">
+        <h3>Performance Monitoring</h3>
+        <div class="performance-content">
+            <div id="chart-container">
+                <canvas id="doughnutChartNew"></canvas>
+            </div>
+            <div class="performance-container">
+                <div class="performance-item">
+                    <i class="fa fa-clock icon"></i>
+                    <h4>Server Response Time</h4>
+                    <div class="item-value">177 ms</div>
+                </div>
+                <div class="performance-item">
+                    <i class="fa fa-clock icon"></i>
+                    <h4>Page Load Time</h4>
+                    <div class="item-value">1.18 s</div>
+                </div>
+                <div class="performance-item">
+                    <i class="fa fa-microchip icon"></i>
+                    <h4>CPU Usage</h4>
+                    <div class="item-value">53%</div>
+                </div>
+                <div class="performance-item">
+                    <i class="fa fa-memory icon"></i>
+                    <h4>Memory Usage</h4>
+                    <div class="item-value">68%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Product-box">
+        <h3>Product Reviews and Ratings</h3>
+    
+        <!-- Flex container for chart and reviews -->
+        <div class="ratings-reviews-container">
+            <!-- Ratings Distribution Chart -->
+            <div class="ratings-chart">
+                <h4>Ratings Distribution</h4>
+                <canvas id="ratingsChart"></canvas>
+            </div>
+            <!-- Recent Reviews -->
+            <div class="recent-reviews">
+                <h4>Recent Reviews</h4>
+                <ul id="reviewsList">
+                    <!-- Sample Reviews -->
+                    <li><strong>Jane Doe:</strong> Great quality, very satisfied! <span class="rating">★★★★★</span></li>
+                    <li><strong>Emily Smith:</strong> Fast delivery, product as described. <span class="rating">★★★★☆</span></li>
+                    <li><strong>Amy Johnson:</strong> Good but expected better packaging. <span class="rating">★★★☆☆</span></li>
+                    <li><strong>Asma khan:</strong> makeup packaging is good. <span class="rating">★★★☆☆</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Average Rating Display -->
+        <div class="average-rating">
+            <h4>Average Rating: <span id="averageRating">4.5</span> / 5</h4>
+        </div>
+    </div>
+    
+    <div class="semi-container">
+        <!-- Load Balancing Section -->
+        <div class="semi-box">
+            <h3>Load Balancing</h3>
+            
+            <ul>
+                <li><a href="#" onclick="showTrafficModal()">Real-time traffic monitoring</a></li>
+                <li><a href="#" onclick="handleFailover()">Automatic server failover</a></li>
+                <li><a href="#" onclick="handleLoadDistribution()">Load distribution based on server health</a></li>
+                
+            </ul>
+            <button class="action-btn" onclick="optimizeLoad()">Optimize Now</button>
+        </div>
+    
+        <!-- User Activity Logs Section -->
+        <div class="user-box">
+            <h3>User Activity Logs</h3>
+            
+            <ul id="activityLogs">
+                <!-- Sample logs will be populated here -->
+            </ul>
+        </div>
+    
+        <!-- Traffic Monitoring Modal -->
+        <div id="trafficModal" class="traffic-modal">
+            <div class="trafficmodal-content">
+                <span class="traffic-close" onclick="closeTrafficModal()">&times;</span>
+                <h3>Real-time Traffic Monitoring</h3>
+                <canvas id="trafficChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!--for sales chart-->
+    <div class="charts">
+        <h2>Sales Trends</h2>
+       
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+
+    <!-- Customizable Load Distribution Policies Section -->
+<div class="custom-policies-box">
+    <h3>Customizable Load Distribution Policies</h3>
+    
+    <form id="loadPoliciesForm">
+        <label for="policyName">Policy Name:</label>
+        <input type="text" id="policyName" name="policyName" required>
+        <label for="serverThreshold">Server Threshold (%):</label>
+        <input type="number" id="serverThreshold" name="serverThreshold" min="0" max="100" required>
+        <button type="button" onclick="saveLoadPolicies()">Save Policy</button>
+    </form>
+    <div id="policyList">
+        <!-- List of policies will be populated here -->
+    </div>
+</div>
+                
+           <!-- Customer Feedback Section -->
+<div class="admin-feedback-section">
+    <h3 class="feedback-heading">Customer Feedback</h3>
+    <div class="feedback-controls">
+        <button class="feedback-reload-btn" onclick="reloadCustomerFeedback()">
+            <i class="fas fa-sync-alt"></i> Reload Feedback
+        </button>
+        <div id="customerFeedbackList" class="feedback-items-list">
+            <!-- Feedback items will be dynamically added here -->
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+    <script>
+
+// Example JavaScript for tooltips on hover
+
+document.querySelectorAll('.metric').forEach(metric => {
+    metric.addEventListener('mouseover', function() {
+        this.style.backgroundColor = '#eaf4f4'; 
+    });
+    metric.addEventListener('mouseout', function() {
+        this.style.backgroundColor = '#fff'; 
+    });
+});
+
+// sales chart
+
+const salesCtx = document.getElementById('myChart').getContext('2d');
+
+
+const rawData = [12, 19, 3, 5, 2, 3];
+
+
+const total = rawData.reduce((sum, value) => sum + value, 0);
+
+const percentageData = rawData.map(value => (value / total) * 100);
+
+const myChart = new Chart(salesCtx, {
+    type: 'bar',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [{
+            label: 'Sales Percentage',
+            data: percentageData,
+            backgroundColor: [
+                '#2c4a9b',
+                'green',
+                '#1e6e6f',
+                '#d4a518',
+                '#961414',
+                '#5a5c69'
+            ],
+            borderColor: [
+                '#2e59d9',
+                '#17a673',
+                '#2c9faf',
+                '#f1b44c',
+                '#e03a2e',
+                '#4e5d6c'
+            ],
+            borderWidth: 1,
+            borderRadius: 5,
+        }]
+    },
+    options: {
+        layout: {
+            padding: 20
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.1)', 
+                },
+                ticks: {
+                    color: 'gray', 
+                    callback: function(value) {
+                        return value + '%'; 
+                    },
+                    stepSize: 10, 
+                }
+            },
+            x: {
+                grid: {
+                    display: false,
+                },
+                ticks: {
+                    color: 'gray', 
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'red', 
+                    font: {
+                        size: 14,
+                        weight: 'bold',
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return tooltipItem.raw.toFixed(2) + '%'; 
+                    }
+                },
+                backgroundColor: '#333', 
+                titleColor: '#fff', 
+                bodyColor: '#fff',
+                borderColor: '#555',
+                borderWidth: 1,
+            }
+        },
+        elements: {
+            bar: {
+                borderRadius: 5,
+                borderSkipped: 'bottom'
+            }
+        }
+    }
+});
+
+// for performance monitering
+
+const ctx = document.getElementById('doughnutChartNew').getContext('2d');
+
+const doughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Website Traffic', 'Conversion Rate', 'Customer Satisfaction', 'Return Rate'],
+        datasets: [{
+            label: 'Performance Monitoring',
+            data: [500, 150, 300, 50], 
+            backgroundColor: ['#8A1D34', '#1A4F8A', '#C49F38', '#4A7F6C'],
+            borderColor: '#fff',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true, 
+        maintainAspectRatio: true, 
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return tooltipItem.label + ': ' + tooltipItem.raw;
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+// perfomance monitering
+function updateServerResponseTime() {
+    const responseTime = Math.floor(Math.random() * 200) + 50; 
+    document.querySelector('.performance-item:nth-child(1) .item-value').textContent = responseTime + ' ms';
+}
+
+function updatePageLoadTime() {
+    const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+    document.querySelector('.performance-item:nth-child(2) .item-value').textContent = (loadTime / 1000).toFixed(2) + ' s';
+}
+
+function updateCpuUsage() {
+    const cpuUsage = Math.floor(Math.random() * 50) + 20; 
+    document.querySelector('.performance-item:nth-child(3) .item-value').textContent = cpuUsage + '%';
+}
+
+function updateMemoryUsage() {
+    const memoryUsage = Math.floor(Math.random() * 40) + 50; 
+    document.querySelector('.performance-item:nth-child(4) .item-value').textContent = memoryUsage + '%';
+}
+
+window.addEventListener('load', () => {
+    updatePageLoadTime();
+    updateServerResponseTime();
+    updateCpuUsage();
+    updateMemoryUsage();
+
+    setInterval(updateServerResponseTime, 5000);
+    setInterval(updateCpuUsage, 3000);
+    setInterval(updateMemoryUsage, 4000);
+});
+
+// Sample data for reviews and ratings
+
+const reviewsData = [
+    { name: "Jane Doe", review: "Great quality, very satisfied!", rating: 5 },
+    { name: "Emily Smith", review: "Fast delivery, product as described.", rating: 4 },
+    { name: "Amy Johnson", review: "Good but expected better packaging.", rating: 3 },
+    { name: "Sara Lee", review: "Excellent fit and comfort.", rating: 5 },
+    { name: "Laura Kim", review: "Not what I expected.", rating: 3 },
+    // Add more sample reviews as needed
+];
+
+// Calculate and display the average rating
+function calculateAverageRating() {
+    const totalRatings = reviewsData.reduce((sum, review) => sum + review.rating, 0);
+    const averageRating = (totalRatings / reviewsData.length).toFixed(1);
+    document.getElementById("averageRating").innerText = averageRating;
+}
+
+// Display reviews
+function displayReviews() {
+    const reviewsList = document.getElementById("reviewsList");
+    reviewsList.innerHTML = "";
+
+    reviewsData.forEach(review => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${review.name}:</strong> ${review.review} <span class="rating">${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</span>`;
+        reviewsList.appendChild(li);
+    });
+}
+
+// Initialize Ratings Distribution Chart
+function initRatingsChart() {
+    const ctx = document.getElementById('ratingsChart').getContext('2d');
+    
+    const chartData = {
+        labels: ['5 Stars', '4 Stars', '3 Stars', '2 Stars', '1 Star'],
+        datasets: [{
+            label: 'Percentage of Ratings',
+            data: [60, 20, 10, 5, 5], 
+            backgroundColor: [
+                'rgba(38, 166, 154, 0.8)',   
+                'rgba(33, 150, 243, 0.8)',   
+                'rgba(255, 193, 7, 0.8)',    
+                'rgba(244, 67, 54, 0.8)',    
+                'rgba(156, 39, 176, 0.8)'    
+            ],
+            borderColor: [
+                'rgba(38, 166, 154, 1)',
+                'rgba(33, 150, 243, 1)',
+                'rgba(255, 193, 7, 1)',
+                'rgba(244, 67, 54, 1)',
+                'rgba(156, 39, 176, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100, 
+                    ticks: {
+                        callback: function(value) {
+                            return value + "%";
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Initialize the reviews and ratings section
+function initReviewsAndRatings() {
+    calculateAverageRating();
+    displayReviews();
+    initRatingsChart();
+}
+document.addEventListener("DOMContentLoaded", initReviewsAndRatings);
+
+// Function to handle server failover
+function handleFailover() {
+    const primaryServer = "https://primary-server.com";
+    const backupServer = "https://backup-server.com";
+
+    // Attempt to connect to the primary server
+
+    fetch(primaryServer)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Primary server is down');
+            }
+            alert('Primary server is operational');
+        })
+        .catch(error => {
+            console.log(error.message);
+            alert('Primary server failed, switching to backup server.');
+
+            // Switch to backup server
+            fetch(backupServer)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Backup server is also down');
+                    }
+                    alert('Backup server is operational. Failover successful.');
+                })
+                .catch(error => {
+                    console.log(error.message);
+                    alert('Both servers are down. Please check your server infrastructure.');
+                });
+        });
+}
+
+// Function to show real-time traffic monitoring modal
+
+function showTrafficModal() {
+    const modal = document.getElementById("trafficModal");
+    modal.style.display = "block";
+
+    
+    const data = {
+        labels: ["10:00", "10:05", "10:10", "10:15", "10:20"],
+        datasets: [{
+            label: 'Active Users',
+            data: [20, 35, 25, 40, 30],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    };
+
+    const ctx = document.getElementById('trafficChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                x: {
+                    beginAtZero: true
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+
+function closeTrafficModal() {
+    document.getElementById("trafficModal").style.display = "none";
+}
+
+// Sample user activity logs data
+const sampleLogs = [
+    "User A logged in at 09:00 AM",
+    "User B updated product details at 09:15 AM",
+    "User C generated a report at 09:30 AM",
+    "User A logged out at 09:45 AM",
+    "User D added a new product at 10:00 AM",
+    "User E changed the order status to 'Shipped' at 10:15 AM",
+    "User F updated inventory levels at 10:30 AM",
+    "User G applied a discount code at 10:45 AM",
+    "User H removed an out-of-stock product at 11:00 AM",
+    "User I reviewed customer feedback at 11:15 AM",
+    "User J logged in at 11:30 AM",
+    "User K edited user permissions at 11:45 AM",
+    "User L scheduled a promotional email at 12:00 PM",
+    "User M exported sales data at 12:15 PM",
+    "User N added a new category at 12:30 PM",
+    "User O updated the website banner at 12:45 PM"
+];
+
+
+// Function to populate user activity logs
+function populateActivityLogs() {
+    const logsContainer = document.getElementById("activityLogs");
+    sampleLogs.forEach(log => {
+        const li = document.createElement("li");
+        li.textContent = log;
+        logsContainer.appendChild(li);
+    });
+}
+
+
+window.onload = populateActivityLogs;
+
+
+let policies = [];
+
+// Function to save load distribution policy
+function saveLoadPolicies() {
+    const policyName = document.getElementById("policyName").value;
+    const serverThreshold = document.getElementById("serverThreshold").value;
+
+    if (policyName && serverThreshold) {
+        policies.push({ name: policyName, threshold: serverThreshold });
+        updatePolicyList();
+        document.getElementById("loadPoliciesForm").reset();
+    } else {
+        alert('Please fill in all fields.');
+    }
+}
+
+// Function to update the list of policies
+function updatePolicyList() {
+    const policyList = document.getElementById("policyList");
+    policyList.innerHTML = ''; 
+
+    policies.forEach((policy, index) => {
+        const div = document.createElement("div");
+        div.classList.add("policy-item");
+        div.innerHTML = `<strong>${policy.name}</strong>: ${policy.threshold}%`;
+        policyList.appendChild(div);
+    });
+}
+
+// Function to optimize load distribution
+
+function optimizeLoad() {
+    
+    alert('Optimizing load distribution based on current server load and policies.');
+
+    
+    fetch('/optimize-load') 
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Optimization failed');
+            }
+            alert('Load distribution optimized successfully.');
+        })
+        .catch(error => {
+            console.error(error.message);
+            alert('Failed to optimize load distribution. Please try again.');
+        });
+}
+
+// Sample server health data
+const servers = [
+    { id: 1, name: 'Server A', cpuUsage: 30, memoryUsage: 50, responseTime: 100 },
+    { id: 2, name: 'Server B', cpuUsage: 70, memoryUsage: 85, responseTime: 300 },
+    { id: 3, name: 'Server C', cpuUsage: 50, memoryUsage: 40, responseTime: 120 },
+    { id: 4, name: 'Server D', cpuUsage: 20, memoryUsage: 30, responseTime: 80 }
+];
+
+// Function to calculate server health score
+
+function calculateHealthScore(server) {
+   
+    const cpuScore = server.cpuUsage * 0.5;
+    const memoryScore = server.memoryUsage * 0.3;
+    const responseScore = server.responseTime * 0.2;
+    return cpuScore + memoryScore + responseScore;
+}
+
+// Function to distribute load based on server health
+
+function distributeLoadBasedOnHealth() {
+    
+    servers.forEach(server => {
+        server.healthScore = calculateHealthScore(server);
+    });
+
+   
+    servers.sort((a, b) => a.healthScore - b.healthScore);
+
+    
+    const loadDistribution = servers.map(server => {
+        return {
+            serverName: server.name,
+            allocatedTraffic: 100 / servers.length 
+        };
+    });
+   
+    console.log("Load Distribution Based on Server Health:", loadDistribution);
+    
+    alert('Load has been distributed based on server health.\n\nFor more details, please check the console log (F12 or right-click and select "Inspect" -> "Console").');
+}
+
+function handleLoadDistribution() {
+    distributeLoadBasedOnHealth();
+}
+
+// Sample customer feedback data
+const customerFeedbacks = [
+    { customer: "Alice", message: "Great shopping experience! Will definitely return.", date: "2024-08-23" },
+    { customer: "Bob", message: "The website is user-friendly but could use more payment options.", date: "2024-08-22" },
+    { customer: "Charlie", message: "Fast delivery and excellent customer service.", date: "2024-08-21" },
+    { customer: "Diana", message: "I love the product range, but the checkout process was a bit confusing.", date: "2024-08-20" },
+    { customer: "Eve", message: "High-quality products at affordable prices. Highly recommend!", date: "2024-08-19" }
+];
+
+// Function to display customer feedback
+
+function displayCustomerFeedback() {
+    const feedbackList = document.getElementById("customerFeedbackList");
+    feedbackList.innerHTML = ''; 
+
+    customerFeedbacks.forEach(feedback => {
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.className = "feedback-item";
+        feedbackDiv.innerHTML = `
+            <strong>${feedback.customer}</strong>
+            <p>${feedback.message}</p>
+            <small>${feedback.date}</small>
+        `;
+        feedbackList.appendChild(feedbackDiv);
+    });
+}
+
+// Function to reload customer feedback
+function reloadCustomerFeedback() {
+   
+    customerFeedbacks.sort(() => Math.random() - 0.5);
+    displayCustomerFeedback(); 
+}
+
+window.onload = function() {
+    displayCustomerFeedback();
+    
+    populateActivityLogs();
+};
+
+function populateActivityLogs() {
+    const logsContainer = document.getElementById("activityLogs");
+    sampleLogs.forEach(log => {
+        const li = document.createElement("li");
+        li.textContent = log;
+        logsContainer.appendChild(li);
+    });
+}
+ 
+// Handling chatbot visibility
+document.getElementById('chatbotToggle').addEventListener('click', function() {
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    chatbotWindow.style.display = chatbotWindow.style.display === 'block' ? 'none' : 'block';
+});
+
+document.getElementById('closeChatbot').addEventListener('click', function() {
+    document.getElementById('chatbotWindow').style.display = 'none';
+});
+
+// Handling sending messages
+document.getElementById('sendMessage').addEventListener('click', function() {
+    const message = document.getElementById('userMessage').value;
+    if (message.trim() !== '') {
+        addMessageToChat('You', message);
+        sendMessageToChatbot(message);
+        document.getElementById('userMessage').value = '';
+    }
+});
+
+function addMessageToChat(sender, message) {
+    const chatMessages = document.getElementById('chatbotMessages');
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message');
+    messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function sendMessageToChatbot(message) {
+    // Simulate chatbot response
+    setTimeout(() => {
+        addMessageToChat('Chatbot', 'This is a response.');
+    }, 1000);
+}
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
