@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup - CelestiaChic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="confirmation-body">
+    <header class="confirmation-header">
+        <h1>Payment</h1>
+        <nav class="confirmation-nav">
+           
+            <a href="admin/index.html">Admin</a>
+            <a href="new-arrivals.html" class="continue-shopping">Continue Shopping</a>
+        </nav>
+    </header>
+    <main class="confirmation-main">
+        <aside class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="order-details">
+                <p>Product Name: <span id="product-name"></span></p>
+                <p>Description: <span id="product-description"></span></p>
+                <p>Quantity: <span id="product-quantity"></span></p>
+                <p>Product Price: <span id="product-price">$0.00</span></p>
+                <p>Delivery Charges: <span id="delivery-charges">$5.00</span></p>
+                <p>Total Amount: <span id="total-amount">$0.00</span></p>
+            </div>
+        </aside>
+        <section id="payment" class="payment-section">
+            <h2>Payment Method</h2>
+            <form id="payment-form">
+                <div class="payment-option">
+                    <input type="radio" id="cod" name="payment-method" value="cod" required>
+                    <label for="cod">Cash on Delivery</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="bank1" name="payment-method" value="bank1" required>
+                    <label for="bank1">Bank Alfalah Debit/Credit Card - Alfa Pay</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="bank2" name="payment-method" value="bank2" required>
+                    <label for="bank2">Payfast Payment via Credit/Debit Cards</label>
+                </div>
+                <button type="submit" id="place-order-button" class="confirmation-button">Place Order</button>
+            </form>
+            <!-- Placeholder for the continue shopping button -->
+            <div id="continue-shopping-placeholder"></div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productNameElement = document.getElementById('product-name');
+            const productDescriptionElement = document.getElementById('product-description');
+            const productQuantityElement = document.getElementById('product-quantity');
+            const productPriceElement = document.getElementById('product-price');
+            const deliveryChargesElement = document.getElementById('delivery-charges');
+            const totalAmountElement = document.getElementById('total-amount');
+            const paymentForm = document.getElementById('payment-form');
+            const continueShoppingPlaceholder = document.getElementById('continue-shopping-placeholder');
+
+            // Get the selected item from localStorage
+            const selectedItem = JSON.parse(localStorage.getItem('selectedItem'));
+            if (!selectedItem) {
+                console.error("No selected item found in localStorage.");
+                return;
+            }
+
+            // Log the selected item for debugging
+            console.log(selectedItem);
+
+            const productPrice = selectedItem.price * selectedItem.quantity;
+            const deliveryCharges = 5;
+            const totalAmount = productPrice + deliveryCharges;
+
+            // Update the product name, description, product price, and total amount on the page
+            productNameElement.textContent = selectedItem.name;
+            productDescriptionElement.textContent = selectedItem.description;
+            productQuantityElement.textContent = selectedItem.quantity;
+            productPriceElement.textContent = `$${productPrice.toFixed(2)}`;
+            deliveryChargesElement.textContent = `$${deliveryCharges.toFixed(2)}`;
+            totalAmountElement.textContent = `$${totalAmount.toFixed(2)}`;
+
+            // Place order button handler
+            paymentForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert("Your order has been placed.");
+
+                // Create and insert the "Continue Shopping" button
+                const continueShoppingButton = document.createElement('a');
+                continueShoppingButton.href = 'new-arrivals.html';
+                continueShoppingButton.textContent = 'Continue Shopping';
+                continueShoppingButton.className = 'confirmation-button';
+                continueShoppingButton.style.display = 'block';
+                continueShoppingButton.style.marginTop = '1rem';
+
+                continueShoppingPlaceholder.appendChild(continueShoppingButton);
+                
+                // Optionally redirect to thank-you page
+                // window.location.href = 'thank-you.html';
+            });
+        });
+    </script>
+</body>
+</html>

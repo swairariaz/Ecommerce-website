@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup - CelestiaChic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation bar starts -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="CelestiaChic Logo" class="logo">
+        </a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="makeup.html">Makeup</a>
+            <a href="sale.html">Sale</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" id="adminLink">Admin</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="Search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="cart-items-container">
+            <h2>Cart</h2>
+            <div id="cart-items"></div>
+            <p id="cart-empty-message">No items selected yet</p>
+           
+        </div>
+    </header>
+
+     <!-- Sign-In Modal -->
+<div id="adminModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Admin Sign-In</h2>
+        <form id="adminLoginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your name">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <label for="accessCode">Access Code:</label>
+            <input type="text" id="accessCode" name="accessCode" required placeholder="Enter the access code">
+            
+            <button type="submit">Sign In</button>
+            <p id="errorMessage" style="color:red; display:none;">Invalid email or access code!</p>
+        </form>
+    </div>
+</div>
+
+    <!-- Navigation bar ends -->
+
+    <!-- Makeup section starts -->
+    <section class="makeup" id="makeup">
+        <h1 class="heading">Makeup</h1>
+        <div class="box-container" id="product-list">
+            <!-- Product -->
+            <div class="box" data-name="diamond ring" data-price="500.99" data-description="tiffny diamond, flower printed ring" data-stock="50">
+                <img src="images/ring-img.jpg" alt="" >
+                <h3>diamond ring</h3>
+                <p>$500.99</p>
+                <p>tiffny diamond, flower printed ring</p>
+                <button class="add-to-cart-btn" onclick="addToCart('diamond ring', 500.99, 'tiffny diamond, flower printed ring')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="red lipstick" data-price="15.99" data-description="best for every skintone" data-stock="50">
+                <img src="images/lipstick.jpg" alt="">
+                <h3>red lipstick</h3>
+                <p>$15.99</p>
+                <p>best for every skintone</p>
+                <button class="add-to-cart-btn" onclick="addToCart('red lipstick', 15.99, 'best for every skintone')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="gold tops" data-price="66.99" data-description="Gold butterfly, easy to carry tops" data-stock="50">
+                <img src="images/tops-img.jpg" alt="">
+                <h3>gold tops</h3>
+                <p>$66.99</p>
+                <p>Gold butterfly, easy to carry tops</p>
+                <button class="add-to-cart-btn" onclick="addToCart('gold tops', 66.99, 'Gold butterfly, easy to carry tops')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="necklaces" data-price="5.99" data-description="Easy to wear and affordable" data-stock="50">
+                <img src="images/necklaces-img.jpg" alt="">
+                <h3>necklaces</h3>
+                <p>$5.99</p>
+                <p>Easy to wear and affordable</p>
+                <button class="add-to-cart-btn" onclick="addToCart('necklaces', 5.99, 'Easy to wear and affordable')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="Eye Enigma" data-price="50.99" data-description="subtle allure with our makeup set" data-stock="50">
+                <img src="images/eye-img.jpg" alt="">
+                <h3>Eye Enigma</h3>
+                <p>$50.99</p>
+                <p>subtle allure with our makeup set</p>
+                <button class="add-to-cart-btn" onclick="addToCart('Eye Enigma', 50.99, 'subtle allure with our makeup set')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="Ethereal Diamond Duo" data-price="159.99" data-description="Versatile elegance for any outfit" data-stock="50">
+                <img src="images/set-img.jpg" alt="">
+                <h3>Ethereal Diamond Duo</h3>
+                <p>$159.99</p>
+                <p>Versatile elegance for any outfit</p>
+                <button class="add-to-cart-btn" onclick="addToCart('Ethereal Diamond Duo', 159.99, 'Versatile elegance for any outfit')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="Contour" data-price="11.99" data-description="long-lasting for all-day wear" data-stock="50">
+                <img src="images/contour.jpg" alt="">
+                <h3>Contour</h3>
+                <p>$11.99</p>
+                <p>long-lasting for all-day wear</p>
+                <button class="add-to-cart-btn" onclick="addToCart('Contour', 11.99, 'long-lasting for all-day wear')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="tyco" data-price="29.99" data-description="Buy one get one free" data-stock="50">
+                <img src="images/bag-3.jpg" alt="">
+                <h3>tyco</h3>
+                <p>$29.99</p>
+                <p>Buy one get one free</p>
+                <button class="add-to-cart-btn" onclick="addToCart('tyco', 29.99, 'Buy one get one free')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="handbag" data-price="20.99" data-description="best for office stuff" data-stock="50">
+                <img src="images/bag-2.jpg" alt="">
+                <h3>handbag</h3>
+                <p>$20.99</p>
+                <p>best for office stuff</p>
+                <button class="add-to-cart-btn" onclick="addToCart('handbag', 20.99, 'best for office stuff')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+
+            <div class="box" data-name="lather bag" data-price="20.99" data-description="Best for every season" data-stock="50">
+                <img src="images/bag-1.jpg" alt="">
+                <h3>lather bag</h3>
+                <p>$20.99</p>
+                <p>Best for every season</p>
+                <button class="add-to-cart-btn" onclick="addToCart('lather bag', 20.99, 'Best for every season')">Add to Cart</button>
+                <p>Stock: <span class="stock">50</span></p>
+            </div>
+        </div>
+    </section>
+    <!-- Makeup section ends -->
+
+     <!-- Footer section starts -->
+<footer class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>QUICK LINKS</h3>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="makeup.html">Makeup</a>
+            <a href="sale.html">Sale</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="box">
+            <h3>CUSTOMER SUPPORT</h3>
+            <a href="#">Customer Service</a>
+            <a href="#">Store Locator</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">Delivery</a>
+            <a href="#">Exchange</a>
+            <a href="#">FAQs</a>
+        </div>
+        
+        <div class="box">
+            <h3>MORE FROM CelestiaChic</h3>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="index.html">Blogs</a>
+        </div>
+
+        <div class="box">
+            <h3>GET IN TOUCH</h3>
+            <p><i class="fas fa-phone"></i> +92 315 3833055</p>
+            <p><i class="fas fa-envelope"></i> CelestiaChic.com</p>
+            <p>GET THE LATEST NEWS</p>
+            <form id="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Email Address" required>
+                <button type="submit">CONFIRM</button>
+                <p id="newsletter-message"></p>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="secure-checkout">
+            <p>100% Safe Checkout</p>
+            <img src="images/mastercard-logo.png" alt="MasterCard" style="width: 150px; height: 30;">
+        </div>
+        <div class="secured-by">
+            <p>Secured by</p>
+            <img src="images/security-logo.png" alt="Security Logo" style="width: 150px; height: 30;">
+        </div>
+    </div>
+    <div class="credit"> created by <span>Swaira Riaz</span> | all rights reserved </div>
+</footer>
+
+<!-- Footer section ends -->
+
+<div id="notification" class="notification">Item added to cart!</div>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('inventory.json')
+                .then(response => response.json())
+                .then(data => {
+                    const makeupItems = data.makeup;
+                console.log('Makeup Items:', makeupItems); // Debugging log
+                displayMakeup(makeupItems);
+                })
+                .catch(error => console.error('Error fetching inventory:', error));
+        });
+    
+        function displayMakeup(makeupItems) {
+            const productList = document.getElementById('product-list');
+            if (!productList) {
+                console.error('Product list element not found');
+                return;
+            }
+            productList.innerHTML = makeupItems.map(item =>
+                `<div class="box" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-description="${item.description}" data-stock="${item.stock}">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="content">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <p><span class="price">$${item.price.toFixed(2)}</span></p>
+                        <a href="#" class="btn add-to-cart">Add to Cart</a>
+                        <p>Stock: <span class="stock">${item.stock}</span></p>
+                    </div>
+                </div>`
+            ).join('');
+        }
+    </script>
+    
+    
+</body>
+</html>

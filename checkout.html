@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CelestiaChic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="checkout-body">
+    <div class="checkout-container">
+        <h1 class="checkout-heading">Checkout</h1>
+        <form class="checkout-form" id="checkout-form">
+            <fieldset class="checkout-fieldset">
+                <legend class="checkout-legend">Customer Information</legend>
+                <label class="checkout-label" for="name">Name:</label>
+                <input class="checkout-input" type="text" id="name" name="name" required>
+                <label class="checkout-label" for="email">Email:</label>
+                <input class="checkout-input" type="email" id="email" name="email" required>
+                <label class="checkout-label" for="phone">Phone:</label>
+                <input class="checkout-input" type="tel" id="phone" name="phone" required>
+                <label class="checkout-label" for="city">City:</label>
+                <input class="checkout-input" type="text" id="city" name="city" required>
+                <label class="checkout-label" for="zipcode">Zipcode:</label>
+                <input class="checkout-input" type="text" id="zipcode" name="zipcode" required>
+                <label class="checkout-label" for="address">Address:</label>
+                <input class="checkout-input" type="text" id="address" name="address" required>
+            </fieldset>
+            <fieldset class="checkout-fieldset checkout-summary">
+                <legend class="checkout-legend">Order Summary</legend>
+                <p>Product Name: <span id="product-name"></span></p>
+                <p>Product Price: <span id="product-price">$0.00</span></p>
+                <p>Delivery Charges: <span id="delivery-charges">$5.00</span></p>
+                <p>Total Amount: <span id="total-amount">$0.00</span></p>
+            </fieldset>
+            <button id="proceed-to-payment" class="checkout-button">Proceed to Payment</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productNameElement = document.getElementById('product-name');
+            const productPriceElement = document.getElementById('product-price');
+            const deliveryChargesElement = document.getElementById('delivery-charges');
+            const totalAmountElement = document.getElementById('total-amount');
+            const proceedToPaymentButton = document.getElementById('proceed-to-payment');
+            const checkoutForm = document.getElementById('checkout-form');
+
+            // Get the selected item from localStorage
+            const selectedItem = JSON.parse(localStorage.getItem('selectedItem'));
+            if (!selectedItem) {
+                console.error("No selected item found in localStorage.");
+                return;
+            }
+
+            // Log the selected item for debugging
+            console.log(selectedItem);
+
+            const productPrice = selectedItem.price * selectedItem.quantity;
+            const deliveryCharges = 5; 
+            const totalAmount = productPrice + deliveryCharges;
+
+            // Update the product name, product price, and total amount on the page
+            productNameElement.textContent = selectedItem.name;
+            productPriceElement.textContent = `$${productPrice.toFixed(2)}`;
+            deliveryChargesElement.textContent = `$${deliveryCharges.toFixed(2)}`;
+            totalAmountElement.textContent = `$${totalAmount.toFixed(2)}`;
+
+            // Proceed to payment button handler
+            proceedToPaymentButton.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // Validate form inputs
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const city = document.getElementById('city').value.trim();
+                const zipcode = document.getElementById('zipcode').value.trim();
+                const address = document.getElementById('address').value.trim();
+
+                if (!name || !email || !phone || !city || !zipcode || !address) {
+                    alert("Please fill all the options.");
+                    return;
+                }
+
+                // If all fields are filled, proceed to confirmation page
+                window.location.href = 'confirmation.html';
+            });
+        });
+    </script>
+</body>
+</html>

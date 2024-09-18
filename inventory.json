@@ -1,0 +1,173 @@
+{
+  "dresses": [
+    {
+      "id": 1,
+      "name": "Summer Floral Dress",
+      "price": 49.99,
+      "description": "3pc (663-fll33)",
+      "image": "images/dress-1.jpg",
+      "stock": 20
+    },
+    {
+      "id": 2,
+      "name": "Elegant Evening Gown",
+      "price": 79.99,
+      "description": "3pc (777-3Ed)",
+      "image": "images/dress-2.jpg",
+      "stock": 20
+    },
+    {
+      "id": 3,
+      "name": "Chic Casual Dress",
+      "price": 69.99,
+      "description": "3pc (color-74d)",
+      "image": "images/dress-3.jpg",
+      "stock": 20
+    },
+    {
+      "id": 4,
+      "name": "Bohemian Summer Dress",
+      "price": 59.99,
+      "description": "3pc (777-3Ed)",
+      "image": "images/dress-4.jpg",
+      "stock": 20
+    },
+    {
+      "id": 5,
+      "name": "Vintage Floral Dress",
+      "price": 39.99,
+      "description": "3pc (tissue-699)",
+      "image": "images/dress-5.jpg",
+      "stock": 20
+    },
+    {
+      "id": 6,
+      "name": "Classic Evening Gown",
+      "price": 89.99,
+      "description": "2pc (69-3ft)",
+      "image": "images/dress-6.jpg",
+      "stock": 20
+    },
+    {
+      "id": 7,
+      "name": "Modern Maxi Dress",
+      "price": 69.99,
+      "description": "2pc (69-3ft)",
+      "image": "images/dress-7.jpg",
+      "stock": 20
+    },
+    {
+      "id": 8,
+      "name": "Elegant Party Dress",
+      "price": 99.99,
+      "description": "2pc (tiss-ue666)",
+      "image": "images/dress-8.jpg",
+      "stock": 20
+    },
+    {
+      "id": 9,
+      "name": "Casual Day Dress",
+      "price": 49.99,
+      "description": "1pc (emb-roid702)",
+      "image": "images/dress-9.jpg",
+      "stock": 20
+    },
+    {
+      "id": 10,
+      "name": "Summer Beach Dress",
+      "price": 29.99,
+      "description": "2pc (22-37ED)",
+      "image": "images/dress-10.jpg",
+      "stock": 20
+    }
+  ],
+  "makeup": [
+    {
+      "id": 1,
+      "name": "Diamond Ring",
+      "price": 500.99,
+      "description": "Tiffany diamond, flower printed ring",
+      "image": "images/ring-img.jpg",
+      "stock": 50
+    },
+    {
+      "id": 2,
+      "name": "Red Lipstick",
+      "price": 15.99,
+      "description": "Best for every skintone",
+      "image": "images/lipstick.jpg",
+      "stock": 50
+    },
+    {
+      "id": 3,
+      "name": "Gold Tops",
+      "price": 66.99,
+      "description": "Gold butterfly, easy to carry tops",
+      "image": "images/tops-img.jpg",
+      "stock": 50
+    },
+    {
+      "id": 4,
+      "name": "Necklaces",
+      "price": 5.99,
+      "description": "Easy to wear and affordable",
+      "image": "images/necklaces-img.jpg",
+      "stock": 50
+    },
+    {
+      "id": 5,
+      "name": "Eye Enigma",
+      "price": 50.99,
+      "description": "subtle allure with our makeup set",
+      "image": "images/eye-img.jpg",
+      "stock": 50
+    },
+    {
+      "id": 6,
+      "name": "Ethereal Diamond Duo",
+      "price": 159.99,
+      "description": "Versatile elegance for any outfit",
+      "image": "images/set-img.jpg",
+      "stock": 50
+    },
+    {
+      "id": 7,
+      "name": "Contour",
+      "price": 11.99,
+      "description": "long-lasting for all-day wear",
+      "image": "images/contour.jpg",
+      "stock": 50
+    },
+    {
+      "id": 8,
+      "name": "Tyco",
+      "price": 29.99,
+      "description": "Buy one get one free",
+      "image": "images/bag-3.jpg",
+      "stock": 50
+    },
+    {
+      "id": 9,
+      "name": "Handbag",
+      "price": 20.99,
+      "description": "Best for office stuff",
+      "image": "images/bag-2.jpg",
+      "stock": 50
+    },
+    {
+      "id": 10,
+      "name": "Leather Bag",
+      "price": 20.99,
+      "description": "Best for every season",
+      "image": "images/bag-1.jpg",
+      "stock": 50
+    },
+    {
+      "id": 11,
+      "name": "lipstick",
+      "category": "makeup",
+      "stock": "20",
+      "price": "15"
+    }
+  ]
+}
