@@ -408,19 +408,20 @@ canvas {
     margin-bottom: 10px;
 }
 
-.order-modal {
+.order-modal { 
     display: none;
     position: fixed;
     z-index: 1;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
     width: 50%;
     height: 60%;
+    transform: translate(-50%, -50%);
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 20px; 
 }
+
 
 .order-modal-content {
     background-color: #fefefe;
