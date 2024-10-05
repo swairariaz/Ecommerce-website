@@ -436,26 +436,30 @@ section {
 @media screen and (max-width: 768px) {
     .header .cart-items-container {
         width: 100%;
-        right: -100%;
+        right: 0; /* Correct the right position */
         height: calc(100vh - 7rem);
         padding: 1rem;
+        overflow-y: auto; /* Allow vertical scroll */
     }
+    
 
     .header .cart-items-container h2 {
         font-size: 2rem;
     }
 
     .header .cart-items-container .cart-item h3 {
-        font-size: 1.2rem;
+        font-size: 1.4rem; /* Increase for readability */
     }
-
+    
     .header .cart-items-container .cart-item p {
-        font-size: 0.9rem;
+        font-size: 1rem; /* Increase for readability */
     }
-
+    
     .header .cart-items-container .cart-item img {
-        height: 5rem;
+        height: auto;
+        max-width: 80px; /* Make sure image fits smaller screens */
     }
+    
 
     .header .cart-items-container .cart-item .content h3 {
         font-size: 1.4rem;
@@ -466,15 +470,17 @@ section {
     }
 
     .header .cart-items-container .cart-item .buy-now-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem; /* Increase padding for better touch area */
+        font-size: 1rem; /* Slightly increase font size */
     }
+    
 
     .header .cart-items-container .cart-item input[type="number"] {
-        width: 50px;
-        padding: 3px;
-        font-size: 0.8em;
+        width: 60px; /* Slightly wider */
+        padding: 5px; /* Increase padding */
+        font-size: 0.9rem; /* Make font a bit larger */
     }
+    
 }
 
 
@@ -1540,7 +1546,7 @@ button[type="submit"]:hover {
     .sale .box .content p,
     .sale .box .content .btn,
     .sale .box .content .coming-soon {
-        font-size: 0.8rem;
+        font-size:1rem;
     }
 
     .sale .box .content .btn {
@@ -1574,9 +1580,9 @@ button[type="submit"]:hover {
     }
 
     .box-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+    
 
     .box {
         padding: 15px;
@@ -1608,13 +1614,11 @@ button[type="submit"]:hover {
         font-size: 1em;
     }
 
-    .checkout-input {
-        font-size: 0.9em;
-    }
+    .checkout-input,
+.checkout-button {
+    font-size: 1rem;
+}
 
-    .checkout-button {
-        font-size: 0.9em;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1633,7 +1637,9 @@ button[type="submit"]:hover {
 
     .header .navbar.active {
         display: flex;
+        position: relative; /* instead of absolute */
     }
+    
     
     .header .navbar a {
         margin: 1rem 0;
