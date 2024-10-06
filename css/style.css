@@ -445,6 +445,15 @@ section {
         z-index: 10; 
         overflow-y: auto; 
     }
+
+    #abc{
+        display: none;
+    }
+
+    #abc.active{
+        display: block;
+        opacity: 1;
+    }
     
 
     .header .cart-items-container h2 {
@@ -486,6 +495,14 @@ section {
     }
     
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #abc{
+        display: none;
+    }
+
+}
+
 
 
 .header {
