@@ -339,6 +339,8 @@ canvas {
     cursor: pointer;
 }
 
+/* Order Content Styling */
+
 .order-content {
     background-color: #fff;
     padding: 20px;
@@ -421,7 +423,6 @@ canvas {
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 20px; 
 }
-
 
 .order-modal-content {
     background-color: #fefefe;
@@ -858,6 +859,8 @@ textarea {
 .close:hover {
     color: #333;
 }
+
+/* Dashboard styling */
 
 /* Feature box styling for dashboard */
 
@@ -1467,6 +1470,21 @@ textarea {
 /* Responsive styles */
 
 @media (max-width: 480px) {
+
+    .feature-box {
+        padding: 10px;  
+        border-radius: 5px;  
+    }
+
+    .feature-box h3 {
+        font-size: 14px;  
+    }
+
+    .feature-box .view-more {
+        padding: 6px 10px;  
+        font-size: 11px;  
+    }
+
     .settings-form {
         padding: 5px;
     }
@@ -1521,10 +1539,6 @@ textarea {
     }
     .feature-box {
         padding: 15px;
-    }
-
-    .feature-box h3 {
-        font-size: 16px;
     }
 
 
@@ -1619,6 +1633,27 @@ textarea {
 }
 
 @media (max-width: 768px) {
+
+    .feature-box {
+        width: 100%;  
+        padding: 15px;  
+        box-shadow: none;  
+        margin-bottom: 20px;  
+    }
+
+    .feature-box h3 {
+        font-size: 16px; 
+    }
+
+    .feature-box .activity-details p {
+        font-size: 13px;  
+    }
+
+    .feature-box .view-more {
+        padding: 8px 12px;  
+        font-size: 12px;  
+    }
+
     .menu-btn {
         display: block;
     }
@@ -1727,9 +1762,7 @@ textarea {
         padding: 6px 10px;
         font-size: 10px;
     }
-    .feature-box {
-        max-width: 100%; 
-    }
+    
 
     .performance-content {
         grid-template-columns: 1fr; 
